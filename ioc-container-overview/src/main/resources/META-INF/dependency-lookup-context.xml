@@ -4,12 +4,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="user" class="club.bugmakers.thinking.in.ioc.overview.domain.User">
+    <bean id="user" class="club.bugmakers.thinking.in.spring.ioc.overview.domain.User">
         <property name="id" value="1" />
         <property name="name" value="BruceOuyang" />
     </bean>
 
-    <bean id="superUser" class="club.bugmakers.thinking.in.ioc.overview.domain.SuperUser" parent="user" primary="true">
+    <bean id="superUser" class="club.bugmakers.thinking.in.spring.ioc.overview.domain.SuperUser" parent="user" primary="true">
         <property name="addr" value="Shanghai" />
     </bean>
 

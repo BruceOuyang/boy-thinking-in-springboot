@@ -1,15 +1,9 @@
-package club.bugmakers.thinking.in.ioc.overview.dependency.injection;
+package club.bugmakers.thinking.in.spring.ioc.overview.dependency.injection;
 
-import club.bugmakers.thinking.in.ioc.overview.annotation.Super;
-import club.bugmakers.thinking.in.ioc.overview.domain.User;
-import club.bugmakers.thinking.in.ioc.overview.repository.UserRepository;
+import club.bugmakers.thinking.in.spring.ioc.overview.repository.UserRepository;
 import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.ListableBeanFactory;
-import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.env.Environment;
-
-import java.util.Map;
 
 /**
  * 依赖注入示例

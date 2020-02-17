@@ -1,8 +1,7 @@
-package club.bugmakers.thinking.in.ioc.overview.dependency.lookup;
+package club.bugmakers.thinking.in.spring.ioc.overview.dependency.lookup;
 
-import club.bugmakers.thinking.in.ioc.overview.annotation.Super;
-import club.bugmakers.thinking.in.ioc.overview.domain.User;
-import com.sun.istack.internal.NotNull;
+import club.bugmakers.thinking.in.spring.ioc.overview.annotation.Super;
+import club.bugmakers.thinking.in.spring.ioc.overview.domain.User;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.ListableBeanFactory;
 import org.springframework.beans.factory.ObjectFactory;

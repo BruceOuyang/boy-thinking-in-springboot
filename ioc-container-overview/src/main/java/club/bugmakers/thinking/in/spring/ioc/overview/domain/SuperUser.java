@@ -1,6 +1,6 @@
-package club.bugmakers.thinking.in.ioc.overview.domain;
+package club.bugmakers.thinking.in.spring.ioc.overview.domain;
 
-import club.bugmakers.thinking.in.ioc.overview.annotation.Super;
+import club.bugmakers.thinking.in.spring.ioc.overview.annotation.Super;
 
 /**
  * 超级用户

@@ -1,4 +1,4 @@
-package club.bugmakers.thinking.in.ioc.overview.domain;
+package club.bugmakers.thinking.in.spring.ioc.overview.domain;
 
 /**
  * 用户类

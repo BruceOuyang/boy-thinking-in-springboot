@@ -1,6 +1,6 @@
-package club.bugmakers.thinking.in.ioc.overview.repository;
+package club.bugmakers.thinking.in.spring.ioc.overview.repository;
 
-import club.bugmakers.thinking.in.ioc.overview.domain.User;
+import club.bugmakers.thinking.in.spring.ioc.overview.domain.User;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.context.ApplicationContext;

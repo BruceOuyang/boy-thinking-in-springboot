@@ -9,7 +9,7 @@
     <!-- 通过 import 来复用 -->
     <import resource="dependency-lookup-context.xml"/>
 
-    <bean id="userRepository" class="club.bugmakers.thinking.in.ioc.overview.repository.UserRepository" autowire="byType"><!-- auto-wiring -->
+    <bean id="userRepository" class="club.bugmakers.thinking.in.spring.ioc.overview.repository.UserRepository" autowire="byType"><!-- auto-wiring -->
         <!-- 手动配置 -->
         <!--<property name="users">-->
             <!--<util:list>-->

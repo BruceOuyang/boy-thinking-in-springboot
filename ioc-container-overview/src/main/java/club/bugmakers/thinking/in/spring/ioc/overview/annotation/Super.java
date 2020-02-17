@@ -1,4 +1,4 @@
-package club.bugmakers.thinking.in.ioc.overview.annotation;
+package club.bugmakers.thinking.in.spring.ioc.overview.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
