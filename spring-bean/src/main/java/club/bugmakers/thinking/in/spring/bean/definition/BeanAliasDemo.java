@@ -1,4 +1,4 @@
-package club.bugmakers.thinking.in.spring.bean;
+package club.bugmakers.thinking.in.spring.bean.definition;
 
 import club.bugmakers.thinking.in.spring.ioc.overview.domain.User;
 import org.springframework.beans.factory.BeanFactory;
