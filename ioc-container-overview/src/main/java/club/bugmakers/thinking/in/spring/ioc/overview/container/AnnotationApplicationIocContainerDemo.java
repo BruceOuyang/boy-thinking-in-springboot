@@ -31,7 +31,7 @@ public class AnnotationApplicationIocContainerDemo {
         // 关闭应用上下文
         applicationContext.close();
 
-        // 查找 bean
+        // 查找 bean --- 将会报错，因为已经 close 掉了
         lookupCollectionByType(applicationContext);
     }
 
