@@ -33,8 +33,8 @@ public class BeanInitializationDemo {
 
         // 依赖查找 UserFactory
         UserFactory userFactory = applicationContext.getBean(UserFactory.class);
-
         System.out.println(userFactory);
+        System.out.println("Spring 应用上下文准备关闭");
 
         // 关闭 Spring 应用上下文
         applicationContext.close();
