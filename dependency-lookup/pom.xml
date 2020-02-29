@@ -11,5 +11,12 @@
 
     <artifactId>dependency-lookup</artifactId>
 
-
+    <dependencies>
+        <!-- 复用 ioc-container-overview -->
+        <dependency>
+            <groupId>${groupId}</groupId>
+            <artifactId>ioc-container-overview</artifactId>
+            <version>${version}</version>
+        </dependency>
+    </dependencies>
 </project>
