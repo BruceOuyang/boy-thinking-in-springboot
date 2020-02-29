@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * {@link BeanFactory} 作为 IOC 容器示例
  */
-public class BeanFactoryIocContainerDemo {
+public class BeanFactoryAsIocContainerDemo {
 
     public static void main(String[] args) {
         // 创建 beanFactory 容器
