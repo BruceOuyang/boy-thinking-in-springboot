@@ -65,7 +65,54 @@ Spring 事件发布、
 如：IoC 配置元信息读取和解析、依赖查找和注入以及 Bean 生命周期等。
 
 
-## 第五章：Spring IoC 依赖查找
+## 第五章：Spring IoC 依赖查找（Dependency Lookup）
+### 1、沙雕面试题 - ObjectFactory 与 BeanFactory 的区别？
+ObjectFactory 与 BeanFactory 都提供依赖查找的能力。  
+
+不过 ObjectFactory 仅关注一个或一种类型的 Bean 依赖查找，并且自身不具备依赖查找的能力，能力则由 BeanFactory 输出。
+
+BeanFactory 则提供了单一类型、集合类型以及层次性等多种依赖查找方式。
+
+### 2、996 面试题 - BeanFactory.getBean 操作是否线程安全？
+BeanFactory.getBean 方法的执行是线程安全的，操作过程中会增加互斥锁。
+
+### 3、劝退面试题 - Spring 依赖查找与注入在来源上的区别？
+（后续了解）
+
+
+## 第六章：Spring IoC 依赖注入（Dependency Injection）
+### 1、沙雕面试题 - 
+
+### 2、996 面试题 - 
+
+### 3、劝退面试题 - 
+
+
+## 第七章：Spring IoC 依赖查找
+### 1、沙雕面试题 - 
+
+### 2、996 面试题 - 
+
+### 3、劝退面试题 - 
+
+
+## 第八章：Spring IoC 依赖查找
+### 1、沙雕面试题 - 
+
+### 2、996 面试题 - 
+
+### 3、劝退面试题 - 
+
+
+## 第九章：Spring IoC 依赖查找
+### 1、沙雕面试题 - 
+
+### 2、996 面试题 - 
+
+### 3、劝退面试题 - 
+
+
+## 第十章：Spring IoC 依赖查找
 ### 1、沙雕面试题 - 
 
 ### 2、996 面试题 - 
