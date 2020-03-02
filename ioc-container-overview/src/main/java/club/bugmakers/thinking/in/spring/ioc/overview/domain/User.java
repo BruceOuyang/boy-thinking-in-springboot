@@ -3,6 +3,9 @@ package club.bugmakers.thinking.in.spring.ioc.overview.domain;
 import club.bugmakers.thinking.in.spring.ioc.overview.enums.City;
 import org.springframework.core.io.Resource;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * 用户类
  */
@@ -14,7 +17,11 @@ public class User {
 
     City city;
 
-    Resource configFileLocation;
+    City[] workCities;
+
+    List<City> lifeCities;
+
+   Resource configFileLocation;
 
     public Long getId() {
         return id;
@@ -40,22 +47,40 @@ public class User {
         this.city = city;
     }
 
-    public Resource getConfigFileLocation() {
-        return configFileLocation;
-    }
-
-    public void setConfigFileLocation(Resource configFileLocation) {
-        this.configFileLocation = configFileLocation;
-    }
-
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", city=" + city +
+                ", workCities=" + Arrays.toString(workCities) +
+                ", lifeCities=" + lifeCities +
                 ", configFileLocation=" + configFileLocation +
                 '}';
+    }
+
+    public List<City> getLifeCities() {
+        return lifeCities;
+    }
+
+    public void setLifeCities(List<City> lifeCities) {
+        this.lifeCities = lifeCities;
+    }
+
+    public City[] getWorkCities() {
+        return workCities;
+    }
+
+    public void setWorkCities(City[] workCities) {
+        this.workCities = workCities;
+    }
+
+    public Resource getConfigFileLocation() {
+        return configFileLocation;
+    }
+
+    public void setConfigFileLocation(Resource configFileLocation) {
+        this.configFileLocation = configFileLocation;
     }
 
     public static User createUser() {

@@ -8,6 +8,13 @@
         <property name="id" value="1" />
         <property name="name" value="BruceOuyang" />
         <property name="city" value="Hangzhou"/>
+        <property name="workCities" value="Hangzhou,Shanghai"/>
+        <property name="lifeCities">
+            <list>
+                <value>Hangzhou</value>
+                <value>Beijing</value>
+            </list>
+        </property>
         <property name="configFileLocation" value="classpath:/META-INF/user-config.properties"/>
     </bean>
 
