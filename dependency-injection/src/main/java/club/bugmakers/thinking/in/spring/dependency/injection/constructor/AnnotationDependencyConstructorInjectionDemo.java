@@ -1,4 +1,4 @@
-package club.bugmakers.thinking.in.spring.dependency.injection.autowiring;
+package club.bugmakers.thinking.in.spring.dependency.injection.constructor;
 
 import club.bugmakers.thinking.in.spring.dependency.injection.UserHolder;
 import club.bugmakers.thinking.in.spring.ioc.overview.domain.User;

@@ -1,4 +1,4 @@
-package club.bugmakers.thinking.in.spring.dependency.injection.autowiring;
+package club.bugmakers.thinking.in.spring.dependency.injection.constructor;
 
 import club.bugmakers.thinking.in.spring.dependency.injection.UserHolder;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
@@ -15,7 +15,7 @@ public class AutoWiringConstructorDependencyConstructorInjectionDemo {
 
         XmlBeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(beanFactory);
 
-        String xmlResourcePath = "classpath:/META-INF/autowiring-dependency-constructor-injection.xml";
+        String xmlResourcePath = "classpath:/META-INF/constructor-dependency-constructor-injection.xml";
 
         // 加载 XML 资源，解析并且生成 BeanDefinition
         beanDefinitionReader.loadBeanDefinitions(xmlResourcePath);
