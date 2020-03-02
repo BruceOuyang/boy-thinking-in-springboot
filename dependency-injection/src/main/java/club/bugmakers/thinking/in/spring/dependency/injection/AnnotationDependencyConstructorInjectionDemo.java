@@ -1,17 +1,14 @@
 package club.bugmakers.thinking.in.spring.dependency.injection;
 
 import club.bugmakers.thinking.in.spring.ioc.overview.domain.User;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 
-import java.util.Map;
-
 /**
- * 基于 Annotation 资源的依赖 Setter 方法注入示例
+ * 基于 Annotation 资源的依赖 构造器 注入示例
  */
-public class AnnotationDependencySetterInjectionDemo {
+public class AnnotationDependencyConstructorInjectionDemo {
 
     public static void main(String[] args) {
 
@@ -24,7 +21,7 @@ public class AnnotationDependencySetterInjectionDemo {
         beanDefinitionReader.loadBeanDefinitions(xmlResourcePath);
 
         // 测试一：注册 Configuration Class (配置类，代替 XML 文件)
-        applicationContext.register(AnnotationDependencySetterInjectionDemo.class);
+        applicationContext.register(AnnotationDependencyConstructorInjectionDemo.class);
 
         // 启动应用上下文
         applicationContext.refresh();
@@ -39,8 +36,6 @@ public class AnnotationDependencySetterInjectionDemo {
 
     @Bean
     public UserHolder userHolder(User user) {
-        UserHolder userHolder = new UserHolder();
-        userHolder.setUser(user);
-        return userHolder;
+        return new UserHolder(user);
     }
 }
