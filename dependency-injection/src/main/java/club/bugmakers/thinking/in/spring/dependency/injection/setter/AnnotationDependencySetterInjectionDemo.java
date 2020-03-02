@@ -1,12 +1,10 @@
-package club.bugmakers.thinking.in.spring.dependency.injection;
+package club.bugmakers.thinking.in.spring.dependency.injection.setter;
 
+import club.bugmakers.thinking.in.spring.dependency.injection.UserHolder;
 import club.bugmakers.thinking.in.spring.ioc.overview.domain.User;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
-
-import java.util.Map;
 
 /**
  * 基于 Annotation 资源的依赖 Setter 方法注入示例

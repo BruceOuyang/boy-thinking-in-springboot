@@ -1,5 +1,6 @@
-package club.bugmakers.thinking.in.spring.dependency.injection;
+package club.bugmakers.thinking.in.spring.dependency.injection.autowiring;
 
+import club.bugmakers.thinking.in.spring.dependency.injection.UserHolder;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
@@ -8,7 +9,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 /**
  * 基于 Api 资源的依赖 Setter 方法注入示例
  */
-public class ApiDependencySetterConstructorDemo {
+public class ApiDependencyConstructorInjectionDemo {
 
     public static void main(String[] args) {
 

@@ -1,14 +1,17 @@
-package club.bugmakers.thinking.in.spring.dependency.injection;
+package club.bugmakers.thinking.in.spring.dependency.injection.setter;
 
+import club.bugmakers.thinking.in.spring.dependency.injection.UserHolder;
 import club.bugmakers.thinking.in.spring.ioc.overview.domain.User;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 /**
- * 基于 Annotation 资源的依赖 构造器 注入示例
+ * 基于 Api 资源的依赖 Setter 方法注入示例
  */
-public class AnnotationDependencyConstructorInjectionDemo {
+public class ApiDependencySetterInjectionDemo {
 
     public static void main(String[] args) {
 
@@ -20,8 +23,8 @@ public class AnnotationDependencyConstructorInjectionDemo {
         // 加载 XML 资源，解析并且生成 BeanDefinition
         beanDefinitionReader.loadBeanDefinitions(xmlResourcePath);
 
-        // 测试一：注册 Configuration Class (配置类，代替 XML 文件)
-        applicationContext.register(AnnotationDependencyConstructorInjectionDemo.class);
+        // 注册 UserHolder 的 BeanDefinition
+        applicationContext.registerBeanDefinition("userHolder", createUserHolderBeanDefinition());
 
         // 启动应用上下文
         applicationContext.refresh();
@@ -34,8 +37,18 @@ public class AnnotationDependencyConstructorInjectionDemo {
         applicationContext.close();
     }
 
-    @Bean
-    public UserHolder userHolder(User user) {
-        return new UserHolder(user);
+    /**
+     * 为 {@link UserHolder} 生成 {@link BeanDefinition}
+     * @return
+     */
+    private static BeanDefinition createUserHolderBeanDefinition() {
+        BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(UserHolder.class);
+        beanDefinitionBuilder.addPropertyReference("user", "superUser");
+        return beanDefinitionBuilder.getBeanDefinition();
     }
+
+//    @Bean
+//    public UserHolder userHolder(User user) {
+//        return new UserHolder(user);
+//    }
 }

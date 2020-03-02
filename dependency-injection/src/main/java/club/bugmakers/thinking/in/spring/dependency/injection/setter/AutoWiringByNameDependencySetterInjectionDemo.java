@@ -1,12 +1,13 @@
-package club.bugmakers.thinking.in.spring.dependency.injection;
+package club.bugmakers.thinking.in.spring.dependency.injection.setter;
 
+import club.bugmakers.thinking.in.spring.dependency.injection.UserHolder;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 
 /**
- * 基于 XML 资源的依赖构造器注入示例
+ * "byName" Autowiring 依赖 Setter 方法注入示例
  */
-public class XmlDependencySetterConstructDemo {
+public class AutoWiringByNameDependencySetterInjectionDemo {
 
     public static void main(String[] args) {
 
@@ -14,7 +15,7 @@ public class XmlDependencySetterConstructDemo {
 
         XmlBeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(beanFactory);
 
-        String xmlResourcePath = "classpath:/META-INF/dependency-constructor-injection.xml";
+        String xmlResourcePath = "classpath:/META-INF/autowiring-dependency-setter-injection.xml";
 
         // 加载 XML 资源，解析并且生成 BeanDefinition
         beanDefinitionReader.loadBeanDefinitions(xmlResourcePath);
