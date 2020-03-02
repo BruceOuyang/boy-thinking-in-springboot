@@ -13,6 +13,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  */
 public class AwareInterfaceDependencyInjectionDemo implements BeanFactoryAware, ApplicationContextAware {
 
+    // 一般不做static，此处为方便演示特意设置
     private static BeanFactory beanFactory;
     private static ApplicationContext applicationContext;
 
