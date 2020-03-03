@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 import java.util.Set;
 
 /**
- * 基于 Annotation 资源的依赖 字段 注入示例
+ * 基于 Annotation 资源的依赖 延迟 注入示例
  */
 public class LazyAnnotationDependencyInjectionDemo {
 
