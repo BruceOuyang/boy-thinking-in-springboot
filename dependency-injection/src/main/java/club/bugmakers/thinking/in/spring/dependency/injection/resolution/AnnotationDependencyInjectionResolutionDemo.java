@@ -10,6 +10,8 @@ import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 
 import javax.inject.Inject;
 import java.lang.annotation.Annotation;
@@ -66,15 +68,17 @@ public class AnnotationDependencyInjectionResolutionDemo {
     @InjectedUser
     private User myInjectedUser;
 
-    @Bean(name = AUTOWIRED_ANNOTATION_PROCESSOR_BEAN_NAME)
+    //    @Bean(name = AUTOWIRED_ANNOTATION_PROCESSOR_BEAN_NAME)
+    @Bean
+    @Order(Ordered.LOWEST_PRECEDENCE - 3)
     public static AutowiredAnnotationBeanPostProcessor beanPostProcessor() {
         AutowiredAnnotationBeanPostProcessor beanPostProcessor = new AutowiredAnnotationBeanPostProcessor();
-        // 1.替换原有注解处理，使用新注解 @InjectedUser
-//        beanPostProcessor.setAutowiredAnnotationType(InjectedUser.class);
+        // 1.替换原有注解处理，使用新注解 @InjectedUser (需要配合 @Order 一起使用)
+        beanPostProcessor.setAutowiredAnnotationType(InjectedUser.class);
 
-        // 2.@Autowired + @Inject + @InjectedUser
-        Set<Class<? extends Annotation>> autowiredAnnotationTypes = new LinkedHashSet<>(Arrays.asList(Autowired.class, Inject.class, InjectedUser.class));
-        beanPostProcessor.setAutowiredAnnotationTypes(autowiredAnnotationTypes);
+        // 2.@Autowired + @Inject + @InjectedUser（需要配合 beanName = AUTOWIRED_ANNOTATION_PROCESSOR_BEAN_NAME 一起使用）
+//        Set<Class<? extends Annotation>> autowiredAnnotationTypes = new LinkedHashSet<>(Arrays.asList(Autowired.class, Inject.class, InjectedUser.class));
+//        beanPostProcessor.setAutowiredAnnotationTypes(autowiredAnnotationTypes);
         return beanPostProcessor;
     }
 
