@@ -1,16 +1,21 @@
 package club.bugmakers.thinking.in.spring.dependency.injection.resolution;
 
 import club.bugmakers.thinking.in.spring.dependency.injection.UserHolder;
+import club.bugmakers.thinking.in.spring.dependency.injection.annotation.InjectedUser;
+import club.bugmakers.thinking.in.spring.dependency.injection.annotation.MyAutowired;
 import club.bugmakers.thinking.in.spring.ioc.overview.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;
 
 import javax.inject.Inject;
-import java.util.Map;
-import java.util.Optional;
+import java.lang.annotation.Annotation;
+import java.util.*;
+
+import static org.springframework.context.annotation.AnnotationConfigUtils.AUTOWIRED_ANNOTATION_PROCESSOR_BEAN_NAME;
 
 /**
  * 注解驱动的依赖注入处理过程
@@ -52,6 +57,27 @@ public class AnnotationDependencyInjectionResolutionDemo {
     @Inject
     private User injectUser;
 
+    /**
+     * Optional Dependency
+     */
+    @MyAutowired
+    private Optional<User> optionalUserMyAutowired;
+
+    @InjectedUser
+    private User myInjectedUser;
+
+    @Bean(name = AUTOWIRED_ANNOTATION_PROCESSOR_BEAN_NAME)
+    public static AutowiredAnnotationBeanPostProcessor beanPostProcessor() {
+        AutowiredAnnotationBeanPostProcessor beanPostProcessor = new AutowiredAnnotationBeanPostProcessor();
+        // 1.替换原有注解处理，使用新注解 @InjectedUser
+//        beanPostProcessor.setAutowiredAnnotationType(InjectedUser.class);
+
+        // 2.@Autowired + @Inject + @InjectedUser
+        Set<Class<? extends Annotation>> autowiredAnnotationTypes = new LinkedHashSet<>(Arrays.asList(Autowired.class, Inject.class, InjectedUser.class));
+        beanPostProcessor.setAutowiredAnnotationTypes(autowiredAnnotationTypes);
+        return beanPostProcessor;
+    }
+
     public static void main(String[] args) {
 
         // 创建 BeanFactory 容器
@@ -77,6 +103,8 @@ public class AnnotationDependencyInjectionResolutionDemo {
         System.out.println("demo.users = " + demo.users);
         System.out.println("demo.optionalUser = " + demo.optionalUser);
         System.out.println("demo.injectUser = " + demo.injectUser);
+        System.out.println("demo.optionalUserMyAutowired = " + demo.optionalUserMyAutowired);
+        System.out.println("demo.myInjectedUser = " + demo.myInjectedUser);
 
         // 关闭应用上下文
         applicationContext.close();
