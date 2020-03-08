@@ -97,11 +97,20 @@ Setter注入 -- 多依赖，非强制注入
 
 
 ## 第七章：Spring IoC 依赖查找
-### 1、沙雕面试题 - 
+### 1、沙雕面试题 - 注入和查找的依赖来源是否相同？
+否。  
+依赖查找的来源仅限于 Spring BeanDefinition 以及单例对象；  
+依赖注入的来源还包括 Resolvable Dependency 和 @Value 所标注的外部化配置。
 
-### 2、996 面试题 - 
+### 2、996 面试题 - 单例对象能在 IoC 容器启动后注册吗？
+可以的。  
+单例对象的注册于 BeanDefinition 不同，BeanDefinition 会被 ConfigurableListableBeanFactory#freezeConfiguration() 方法影响，从而冻结注册，单例对象则没有这个限制。
 
-### 3、劝退面试题 - 
+### 3、劝退面试题 - Spring 依赖注入的来源有哪些？
+Spring BeanDefinition  
+单例对象 - 调用 SpringApi 手工注册单例对象  
+Resolvable Dependency  
+@Value 外部配置
 
 
 ## 第八章：Spring IoC 依赖查找
