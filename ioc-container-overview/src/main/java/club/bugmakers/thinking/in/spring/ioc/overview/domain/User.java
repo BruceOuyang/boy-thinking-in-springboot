@@ -1,15 +1,18 @@
 package club.bugmakers.thinking.in.spring.ioc.overview.domain;
 
 import club.bugmakers.thinking.in.spring.ioc.overview.enums.City;
+import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.core.io.Resource;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.Arrays;
 import java.util.List;
 
 /**
  * 用户类
  */
-public class User {
+public class User implements BeanNameAware {
 
     Long id;
 
@@ -22,6 +25,11 @@ public class User {
     List<City> lifeCities;
 
    Resource configFileLocation;
+
+    /**
+     * transient 序列化时忽略此字段
+     */
+   transient String beanName;
 
     public Long getId() {
         return id;
@@ -45,6 +53,10 @@ public class User {
 
     public void setCity(City city) {
         this.city = city;
+    }
+
+    public String getBeanName() {
+        return beanName;
     }
 
     @Override
@@ -88,5 +100,20 @@ public class User {
         user.setId(1L);
         user.setName("BruceOuyang");
         return user;
+    }
+
+    @PostConstruct
+    public void init(){
+        System.out.println("....User Bean [" + beanName + "] 初始化....");
+    }
+
+    @PreDestroy
+    public void destroy(){
+        System.out.println("....User Bean [" + beanName + "] 销毁....");
+    }
+
+    @Override
+    public void setBeanName(String name) {
+        this.beanName = name;
     }
 }
