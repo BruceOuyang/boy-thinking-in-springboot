@@ -11,8 +11,11 @@
     <title>Hello Bean Scope</title>
 </head>
 <body>
+<!-- page -> request -> session -> application(servletContext)  -->
 <h1>Hello Bean Scope</h1>
-<h3>current User: ${user.name}</h3>
+<h3>@requestScope \${user.name}: ${user.name}</h3>
+<h3>@sessionScope \${userObject.name}: ${userObject.name}</h3>
+<h3>@applicationScope \${applicationScope["scopedTarget.user"].name}: ${applicationScope["scopedTarget.user"].name}</h3>
 <ul>
     <li>Singleton</li>
     <li>Prototype</li>

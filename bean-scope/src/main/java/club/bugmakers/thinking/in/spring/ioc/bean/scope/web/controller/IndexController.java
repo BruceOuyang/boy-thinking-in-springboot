@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class IndexController {
 
     @Autowired
-    private User user;
+    private User user; // 通过 cg-lib 代理的对象
 
     @GetMapping("/index.html")
     public String index(Model model){
-        model.addAttribute("user", user);
+        model.addAttribute("userObject", user);
         return "index";
     }
 }
