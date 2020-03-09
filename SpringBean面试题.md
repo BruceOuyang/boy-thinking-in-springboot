@@ -113,15 +113,26 @@ Resolvable Dependency
 @Value 外部配置
 
 
-## 第八章：Spring IoC 依赖查找
-### 1、沙雕面试题 - 
+## 第八章：Spring Bean 作用域（Scopes）
+### 1、沙雕面试题 - Spring 内建的 Bean作用域有几种？
+设计模式角度：singleton 单例 / prototype 原型   
+web 角度：/ request / session / application 以及 websocket
 
-### 2、996 面试题 - 
+### 2、996 面试题 - singleton Bean 是否在一个应用中是唯一的？
+否。  
+singleton bean 仅在当前 Spring IoC 容器（BeanFactory）中是单例对象。  
+一个应用可能不止一个容器，还有很多其他容器。
 
-### 3、劝退面试题 - 
+附，一个静态变量是否是唯一的？   
+答案也是否定的，它只是对它的 ClassLoader 来说是唯一的。  
+一个应用中可能也会存在多个 ClassLoader，ClassLoader 之间是相互隔离的。
+
+### 3、劝退面试题 - "application" Bean 是否可以被其他方案代替？
+可以的。  
+实际上，"application" Bean 与 "singleton" Bean 没有本质区别。
 
 
-## 第九章：Spring IoC 依赖查找
+## 第九章：Spring Bean 生命周期（Bean Lifecycle）
 ### 1、沙雕面试题 - 
 
 ### 2、996 面试题 - 
